@@ -1,0 +1,320 @@
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Registrar un cliente válido
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Registrar un cliente válido
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Registrar un cliente válido | Duración: 0.0018 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Rechazar un correo inválido
+2026-11-18 21:23:43 | ERROR | software_fj | Operación fallida: Rechazar un correo inválido | ErrorCliente: El correo electrónico no tiene un formato válido.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "main.py", line 64, in registrar_cliente_invalido
+    Cliente("C-2", "Cliente de prueba", "correo-invalido", "3001234567")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\cliente.py", line 21, in __init__
+    self.set_correo(correo)
+    ~~~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\cliente.py", line 50, in set_correo
+    raise ErrorCliente("El correo electrónico no tiene un formato válido.")
+excepciones.ErrorCliente: El correo electrónico no tiene un formato válido.
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Rechazar un correo inválido | Duración: 0.0110 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Rechazar un cliente duplicado
+2026-11-18 21:23:43 | ERROR | software_fj | Operación fallida: Rechazar un cliente duplicado | ErrorClienteDuplicado: Ya existe un cliente con identificación 'C-1'.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "main.py", line 67, in registrar_cliente_duplicado
+    gestor.registrar_cliente(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        Cliente(
+        ^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\gestor.py", line 31, in registrar_cliente
+    raise ErrorClienteDuplicado(
+        f"Ya existe un cliente con identificación '{identificacion}'."
+    )
+excepciones.ErrorClienteDuplicado: Ya existe un cliente con identificación 'C-1'.
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Rechazar un cliente duplicado | Duración: 0.0013 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Registrar un servicio de sala
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Registrar un servicio de sala
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Registrar un servicio de sala | Duración: 0.0001 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Registrar un servicio de equipo
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Registrar un servicio de equipo
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Registrar un servicio de equipo | Duración: 0.0001 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Registrar un servicio de asesoría
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Registrar un servicio de asesoría
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Registrar un servicio de asesoría | Duración: 0.0001 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Rechazar un servicio con tarifa negativa
+2026-11-18 21:23:43 | ERROR | software_fj | Operación fallida: Rechazar un servicio con tarifa negativa | ErrorParametroServicio: La tarifa debe ser positiva.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "main.py", line 117, in <lambda>
+    lambda: ReservaSala("S-3", "Sala inválida", -10, 5),
+            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\sala.py", line 28, in __init__
+    super().__init__(identificador, nombre, tarifa_base, disponibilidad)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\servicio.py", line 36, in __init__
+    self._tarifa_base = self._validar_tarifa(tarifa_base)
+                        ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\servicio.py", line 65, in _validar_tarifa
+    raise ErrorParametroServicio("La tarifa debe ser positiva.")
+excepciones.ErrorParametroServicio: La tarifa debe ser positiva.
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Rechazar un servicio con tarifa negativa | Duración: 0.0029 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Crear y confirmar una reserva
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Crear y confirmar una reserva
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Crear y confirmar una reserva | Duración: 0.0004 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Rechazar reserva de un servicio no disponible
+2026-11-18 21:23:43 | ERROR | software_fj | Operación fallida: Rechazar reserva de un servicio no disponible | ErrorServicioNoDisponible: El servicio 'Sala cerrada' no está disponible.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "main.py", line 82, in intentar_reserva_no_disponible
+    gestor.crear_reserva("R-2", "C-1", "S-2", 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\gestor.py", line 72, in crear_reserva
+    reserva = Reserva(identificador_validado, cliente, servicio, duracion)
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 39, in __init__
+    servicio.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\servicio.py", line 104, in validar_disponibilidad
+    raise ErrorServicioNoDisponible(
+        f"El servicio '{self.nombre}' no está disponible."
+    )
+excepciones.ErrorServicioNoDisponible: El servicio 'Sala cerrada' no está disponible.
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Rechazar reserva de un servicio no disponible | Duración: 0.0023 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Rechazar una duración inválida
+2026-11-18 21:23:43 | ERROR | software_fj | Operación fallida: Rechazar una duración inválida | ErrorReserva: La duración debe ser un número positivo y finito.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "main.py", line 85, in intentar_reserva_duracion_invalida
+    gestor.crear_reserva("R-3", "C-1", "S-1", 0)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\gestor.py", line 72, in crear_reserva
+    reserva = Reserva(identificador_validado, cliente, servicio, duracion)
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 36, in __init__
+    duracion_validada = self._validar_duracion(duracion)
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 56, in _validar_duracion
+    raise ErrorReserva("La duración debe ser un número positivo y finito.")
+excepciones.ErrorReserva: La duración debe ser un número positivo y finito.
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Rechazar una duración inválida | Duración: 0.0017 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Crear y cancelar una reserva
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Crear y cancelar una reserva
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Crear y cancelar una reserva | Duración: 0.0003 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Rechazar confirmación de reserva cancelada
+2026-11-18 21:23:43 | ERROR | software_fj | Operación fallida: Rechazar confirmación de reserva cancelada | ErrorEstadoReserva: No se puede confirmar una reserva en estado CANCELADA.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "main.py", line 93, in confirmar_reserva_cancelada
+    reservas["cancelada"].confirmar()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 81, in confirmar
+    raise ErrorEstadoReserva(
+        f"No se puede confirmar una reserva en estado {self._estado}."
+    )
+excepciones.ErrorEstadoReserva: No se puede confirmar una reserva en estado CANCELADA.
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Rechazar confirmación de reserva cancelada | Duración: 0.0010 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Procesar costo con impuesto y descuento
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Procesar costo con impuesto y descuento
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Procesar costo con impuesto y descuento | Duración: 0.0001 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Continuar después de errores
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Continuar después de errores
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Continuar después de errores | Duración: 0.0001 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Prueba de error inesperado
+2026-11-18 21:23:43 | ERROR | software_fj | Operación fallida: Prueba de error inesperado | ValueError: invalid literal for int() with base 10: 'no-es-numero'
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "<string>", line 6, in <lambda>
+    fallo = ejecutar_operacion("Prueba de error inesperado", lambda: int("no-es-numero"))
+                                                                     ~~~^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'no-es-numero'
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Prueba de error inesperado | Duración: 0.0011 segundos
+2026-11-18 21:23:43 | INFO | software_fj | Inicio de operación: Operación posterior
+2026-11-18 21:23:43 | INFO | software_fj | Operación completada: Operación posterior
+2026-11-18 21:23:43 | INFO | software_fj | Fin de operación: Operación posterior | Duración: 0.0001 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Registrar un cliente válido
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Registrar un cliente válido
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Registrar un cliente válido | Duración: 0.0018 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Rechazar un correo inválido
+2026-11-19 21:13:32 | ERROR | software_fj | Operación fallida: Rechazar un correo inválido | ErrorCliente: El correo electrónico no tiene un formato válido.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 64, in registrar_cliente_invalido
+    Cliente("C-2", "Cliente de prueba", "correo-invalido", "3001234567")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\cliente.py", line 21, in __init__
+    self.set_correo(correo)
+    ~~~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\cliente.py", line 50, in set_correo
+    raise ErrorCliente("El correo electrónico no tiene un formato válido.")
+excepciones.ErrorCliente: El correo electrónico no tiene un formato válido.
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Rechazar un correo inválido | Duración: 0.0076 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Rechazar un cliente duplicado
+2026-11-19 21:13:32 | ERROR | software_fj | Operación fallida: Rechazar un cliente duplicado | ErrorClienteDuplicado: Ya existe un cliente con identificación 'C-1'.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 67, in registrar_cliente_duplicado
+    gestor.registrar_cliente(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        Cliente(
+        ^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\gestor.py", line 33, in registrar_cliente
+    raise ErrorClienteDuplicado(
+        f"Ya existe un cliente con identificación '{identificacion}'."
+    )
+excepciones.ErrorClienteDuplicado: Ya existe un cliente con identificación 'C-1'.
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Rechazar un cliente duplicado | Duración: 0.0023 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Registrar un servicio de sala
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Registrar un servicio de sala
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Registrar un servicio de sala | Duración: 0.0004 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Registrar un servicio de equipo
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Registrar un servicio de equipo
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Registrar un servicio de equipo | Duración: 0.0002 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Registrar un servicio de asesoría
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Registrar un servicio de asesoría
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Registrar un servicio de asesoría | Duración: 0.0002 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Rechazar un servicio con tarifa negativa
+2026-11-19 21:13:32 | ERROR | software_fj | Operación fallida: Rechazar un servicio con tarifa negativa | ErrorParametroServicio: La tarifa debe ser positiva.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 126, in <lambda>
+    lambda: ReservaSala("S-3", "Sala inválida", -10, 5),
+            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\sala.py", line 28, in __init__
+    super().__init__(identificador, nombre, tarifa_base, disponibilidad)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\servicio.py", line 36, in __init__
+    self._tarifa_base = self._validar_tarifa(tarifa_base)
+                        ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\servicio.py", line 65, in _validar_tarifa
+    raise ErrorParametroServicio("La tarifa debe ser positiva.")
+excepciones.ErrorParametroServicio: La tarifa debe ser positiva.
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Rechazar un servicio con tarifa negativa | Duración: 0.0033 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Crear y confirmar una reserva
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Crear y confirmar una reserva
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Crear y confirmar una reserva | Duración: 0.0003 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Rechazar reserva de un servicio no disponible
+2026-11-19 21:13:32 | ERROR | software_fj | Operación fallida: Rechazar reserva de un servicio no disponible | ErrorServicioNoDisponible: El servicio 'Sala cerrada' no está disponible.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 82, in intentar_reserva_no_disponible
+    gestor.crear_reserva("R-2", "C-1", "S-2", 1)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\gestor.py", line 79, in crear_reserva
+    reserva = Reserva(
+        identificador_validado,
+    ...<6 lines>...
+        modalidad=modalidad,
+    )
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 87, in __init__
+    servicio.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\servicio.py", line 108, in validar_disponibilidad
+    raise ErrorServicioNoDisponible(
+        f"El servicio '{self.nombre}' no está disponible."
+    )
+excepciones.ErrorServicioNoDisponible: El servicio 'Sala cerrada' no está disponible.
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Rechazar reserva de un servicio no disponible | Duración: 0.0022 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Rechazar una duración inválida
+2026-11-19 21:13:32 | ERROR | software_fj | Operación fallida: Rechazar una duración inválida | ErrorReserva: La duración debe ser un número positivo y finito.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 85, in intentar_reserva_duracion_invalida
+    gestor.crear_reserva("R-3", "C-1", "S-1", 0)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\gestor.py", line 79, in crear_reserva
+    reserva = Reserva(
+        identificador_validado,
+    ...<6 lines>...
+        modalidad=modalidad,
+    )
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 65, in __init__
+    duracion_validada = self._validar_duracion(duracion)
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 161, in _validar_duracion
+    raise ErrorReserva("La duración debe ser un número positivo y finito.")
+excepciones.ErrorReserva: La duración debe ser un número positivo y finito.
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Rechazar una duración inválida | Duración: 0.0014 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Crear y cancelar una reserva
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Crear y cancelar una reserva
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Crear y cancelar una reserva | Duración: 0.0003 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Rechazar confirmación de reserva cancelada
+2026-11-19 21:13:32 | ERROR | software_fj | Operación fallida: Rechazar confirmación de reserva cancelada | ErrorEstadoReserva: No se puede confirmar una reserva en estado CANCELADA.
+Traceback (most recent call last):
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\logger.py", line 87, in registrar_operacion
+    yield
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 22, in ejecutar_operacion
+    accion()
+    ~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\main.py", line 98, in confirmar_reserva_cancelada
+    reservas["cancelada"].confirmar()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\Eloha\OneDrive\Desktop\software-fj-gestion-reservas\reserva.py", line 202, in confirmar
+    raise ErrorEstadoReserva(
+        f"No se puede confirmar una reserva en estado {self._estado}."
+    )
+excepciones.ErrorEstadoReserva: No se puede confirmar una reserva en estado CANCELADA.
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Rechazar confirmación de reserva cancelada | Duración: 0.0014 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Crear y confirmar una reserva de asesoría
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Crear y confirmar una reserva de asesoría
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Crear y confirmar una reserva de asesoría | Duración: 0.0007 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Procesar costo con impuesto y descuento
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Procesar costo con impuesto y descuento
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Procesar costo con impuesto y descuento | Duración: 0.0005 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Procesar costo de reserva de asesoría
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Procesar costo de reserva de asesoría
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Procesar costo de reserva de asesoría | Duración: 0.0005 segundos
+2026-11-19 21:13:32 | INFO | software_fj | Inicio de operación: Continuar después de errores
+2026-11-19 21:13:32 | INFO | software_fj | Operación completada: Continuar después de errores
+2026-11-19 21:13:32 | INFO | software_fj | Fin de operación: Continuar después de errores | Duración: 0.0002 segundos
