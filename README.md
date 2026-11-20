@@ -1,5 +1,3 @@
-# software-fj-gesti-n-reservas
-Software FJ es una aplicación orientada a objetos desarrollada para administrar clientes, servicios y reservas. Permite gestionar reservas de salas, alquileres de equipos y asesorías especializadas, calcular costos con impuestos y descuentos, y controlar los estados de cada reserva. Los datos se mantienen en memoria y los eventos y errores
 # Software FJ
 
 Sistema Integral de Gestión de Clientes, Servicios y Reservas.
@@ -45,6 +43,36 @@ duración; las unidades disponibles determinan si el servicio puede reservarse.
 - El procesamiento calcula el costo de una reserva confirmada sin cambiar su
   estado.
 
+## Calendario y capacidad
+
+Las reservas pueden incluir fecha y hora de entrada/salida, cantidad de
+personas y modalidad (`POR_HORAS`, `DIA_COMPLETO` o `NOCHE_COMPLETA`). Al
+indicar el horario, la duración se calcula automáticamente en horas. Los
+horarios exactos de día y noche los define quien crea la reserva; el sistema no
+presupone una hora universal de entrada o salida.
+
+Las salas y lugares con capacidad limitan tanto las personas de cada reserva
+como el aforo total de reservas simultáneas. Las asesorías personalizadas
+admiten una persona por cita y no se pueden solapar para el mismo servicio. Las
+reservas canceladas dejan de ocupar capacidad.
+
+Ejemplo:
+
+```python
+from datetime import datetime
+from reserva import ModalidadReserva
+
+reserva = gestor.crear_reserva(
+    "R-10",
+    "C-1",
+    "S-1",
+    fecha_hora_entrada=datetime(2026, 12, 1, 18, 0),
+    fecha_hora_salida=datetime(2026, 12, 2, 8, 0),
+    cantidad_personas=4,
+    modalidad=ModalidadReserva.NOCHE_COMPLETA,
+)
+```
+
 ## Ejecución
 
 Requiere Python 3.12 o posterior y no necesita bibliotecas externas.
@@ -55,10 +83,11 @@ Ejecuta la simulación de operaciones válidas e inválidas:
 python main.py
 ```
 
-La simulación reporta operaciones ejecutadas, completadas y rechazadas, así
-como el número de clientes, servicios y reservas que permanecen en memoria.
-Los errores inesperados se registran y se informan sin impedir que se intenten
-las operaciones posteriores.
+La simulación ejecuta al menos 10 operaciones válidas completas, además de
+operaciones inválidas para demostrar las validaciones. Reporta las operaciones
+ejecutadas, completadas y rechazadas, así como el número de clientes, servicios
+y reservas que permanecen en memoria. Los errores inesperados se registran y
+se informan sin impedir que se intenten las operaciones posteriores.
 
 ## Registro de eventos
 
