@@ -98,3 +98,12 @@ logs/software_fj.log
 ```
 
 No se deben registrar datos personales completos ni información sensible.
+Sí, conviene incluir una breve sección en el README, pero no es obligatorio. Ya existe una sección sobre el registro de eventos; puedes agregarle:
+
+```markdown
+## Carpeta de registros
+
+La carpeta `logs/` contiene los archivos generados durante la ejecución del sistema.
+`software_fj.log` registra operaciones realizadas, advertencias y errores sin
+persistir datos personales ni información sensible.
+```
